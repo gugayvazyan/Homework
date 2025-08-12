@@ -1,8 +1,8 @@
 #include <stdio.h>
 
 int main() {
-	const int size = 6;
-	int arr[size] = { 1, 2, 3, 4, 5, 6};
+	const int size = 7;
+	int arr[size] = { 1, 2, 3, 4, 5, 6, 7};
 
 	int *start = arr;
 	int *end = arr + size - 1;
