@@ -11,7 +11,7 @@ int main() {
 	}
 
 	for (int i = 0; i < loop; ++i) {
-		for (int j = loop - 1; j != i; --j) {
+		for (int j = loop - i - 1; j != i; --j) {
 			if (arr[i] > arr[j]) { 
 				int tmp = arr[i];
 				arr[i] = arr[j];
