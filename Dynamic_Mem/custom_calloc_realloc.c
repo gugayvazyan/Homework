@@ -3,23 +3,34 @@
 #include <string.h>
 
 void* custom_calloc(size_t num, size_t size) {
-	
-	void* arr = malloc(num * size); 
-
-	return arr;
+    void* arr = malloc(num * size);
+    if (arr != NULL) {
+        memset(arr, 0, num * size);
+    }
+    return arr;
 }
 
 
 
-void* custom_realloc(void* ptr, size_t nums) {
+void* custom_realloc(void* ptr, size_t size) {
+    if (size == 0) {
+        free(ptr);
+        return NULL;
+    }
 
-    void* tmp = malloc(nums);
- 
-   
-    memcpy(tmp, ptr, nums);  
-    free(ptr);  
+    if (ptr == NULL) {
+        return malloc(size);
+    }
+
+    void* tmp = malloc(size);
+    if (!tmp) return NULL;
+
+    memcpy(tmp, ptr, size);
+    free(ptr);
+
     return tmp;
-}  
+}
+
 	
 int main() {
 	
